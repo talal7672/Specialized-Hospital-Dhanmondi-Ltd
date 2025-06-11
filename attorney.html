@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,600;1,700;1,800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet"> 
+  <link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+  <title>BKLA Attorney</title>
+  </head>
+
+
+
+<!-- Navbar Start -->
+
+<style>
+  /* Smooth transition for the mobile menu */
+  #mobile-menu {
+    top: 80px;
+    transform: translateX(-100%) scale(0.8); /* Start off-screen with scale */
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s ease-in-out;
+  }
+
+  /* When the menu is visible, slide it in */
+  #mobile-menu.visible {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    visibility: visible; /* Make visible when active */
+  }
+
+  /* Hamburger menu lines */
+  .hamburger-icon path {
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.5s ease-in-out;
+  }
+
+  /* Top line transforms to a diagonal */
+  .hamburger-icon.open path:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  /* Middle line disappears */
+  .hamburger-icon.open path:nth-child(2) {
+    opacity: 0;
+  }
+
+  /* Bottom line transforms to a diagonal */
+  .hamburger-icon.open path:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* Ensuring text stays in one line */
+  .single-line-heading {
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: unset;
+    width: auto;
+    margin: 0;
+  }
+
+  /* Hero container with centered text */
+  .hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  /* Fixed navbar */
+  .sticky-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .navbar-height {
+    height: 80px;
+  }
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  /* Mobile menu styling */
+  .navbar-container a {
+    transition: color 0.3s ease;
+  }
+
+  .navbar-container a:hover {
+    color: #B1976B;
+  }
+</style>
+
+<body class="bg-white">
+  <div class="bg-white">
+    <header class="sticky-navbar navbar-height">
+      <nav class="navbar-container p-4 lg:px-8 bg-white" aria-label="Global">
+        <div class="flex lg:flex-1">
+          <a href="index.html" class="-m-1.5 p-1.5">
+            <span class="sr-only">Your Company</span>
+            <img class="h-20 w-auto" src="img/logoB.png" alt="Company Logo">
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex lg:hidden">
+          <button 
+            type="button" 
+            onclick="toggleMenu()" 
+            class="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-6 w-6 hamburger-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="hidden lg:flex lg:items-center lg:gap-x-8">
+          <a href="index.html" class="text-sm font-semibold text-gray-900">Home</a>
+          <a href="about.html" class="text-sm font-semibold text-gray-900">About</a>
+          <a href="practice1.html" class="text-sm font-semibold text-gray-900">Services</a>
+          <a href="attorney.html" class="text-sm font-semibold text-gray-900">Attorney</a>
+          <a href="associates.html" class="text-sm font-semibold text-gray-900">Associates</a>
+          <a href="contact.html" class="text-sm font-semibold text-gray-900">Contact</a>
+        </div>
+
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a href="#" class="text-sm font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </nav>
+
+      <!-- Mobile Navigation Links -->
+      <div 
+        id="mobile-menu" 
+        class="fixed inset-y-0 left-0 z-40 w-64 bg-white shadow-lg flex flex-col space-y-2 px-6 pt-4 pb-6"
+      >
+        <a href="index.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Home</a>
+        <a href="about.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">About</a>
+        <a href="practice1.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Services</a>
+        <a href="attorney.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Attorney</a>
+        <a href="associates.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Associates</a>
+        <a href="contact.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Contact</a>
+        <a href="https://maps.app.goo.gl/5n88uqXQPzYyFhso7?g_st=ic" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Live Location</a>
+        <a href="#" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Log in</a>
+      </div>
+    </header>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.querySelector('.hamburger-icon');
+      
+      menu.classList.toggle('visible');
+      icon.classList.toggle('open');
+    }
+  </script>
+
+    <!-- Navbar ends -->
+
+
+    <!-- Attorney title starts -->
+
+
+    <section id="work-with-us" class="relative isolate overflow-hidden bg-gray-900 py-16 flex items-center justify-center" style="height: 50vh;">
+        <img src="img/cutefirm_edited_edited.jpg" alt="" class="absolute inset-0 -z-10 size-full object-cover object-right md:object-center">
+        <div class="mx-auto text-center">
+            <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Attorney</h2>
+        </div>
+    </section>
+
+    <!-- Attorney title ends -->  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+
+            
+        
+
+
+
+
+<style>
+    /*this is for head of chamber*/
+
+    .content-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #f5f5f5; /* Light gray background */
+      }
+      
+      .text-containerP {
+        width: 50%;
+        padding: 10px;
+      }
+      
+      .image-containerP {
+        width: 50%;
+        text-align: center;
+      }
+      
+      img {
+        max-width: 100%;
+      }
+    
+      .text-containerP h1{
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        margin-top: 100px;
+        margin-left: 110px;
+    
+      }
+    
+      .text-containerP h2{
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        margin-left: 110px;
+        margin-bottom: 35px;
+      }
+    
+      .text-containerP h3{
+        font-family: 'Poppins', sans-serif;
+        margin-left: 110px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: 30px;
+      }
+    
+      .text-containerP h4{
+        font-family: 'Poppins', sans-serif;
+        margin-left: 110px;
+        font-style: normal;
+        font-size: 16px;
+        font-weight: 200;
+        line-height: 30px;
+        
+      }
+    
+      .text-containerP h5{
+        font-family: 'Poppins', sans-serif;
+        margin-left: 110px;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 33px;
+        font-style: normal;
+      }
+    
+      
+    /* Unique Social Buttons Container */
+    .unique-social-buttons {
+        display: flex;
+        justify-content: start;
+        margin-left: 110px;
+        margin-top: 20px;
+      }
+      
+      /* Unique Social Button Styles - Black background, white icons */
+      .unique-social-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: black; /* Default button color - black */
+        color: white; /* Icon color - white */
+        text-align: center;
+        margin-right: 10px;
+        font-size: 20px;
+        transition: all 0.3s ease;
+      }
+      
+      .unique-facebook-btn {
+        background-color: black; /* Black button */
+        margin-top: 30px;
+      }
+      
+      .unique-gmail-btn {
+        background-color: black; /* Black button */
+        margin-bottom: 100px;
+        margin-top: 30px;
+    
+      }
+      
+      /* Hover Effect - Switch colors on hover */
+      .unique-social-btn:hover {
+        background-color: white; /* Button becomes white */
+        color: black; /* Icon becomes black */
+        transform: scale(1.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+
+
+
+      /* Mobile-first styles */
+
+      @media (max-width: 768px) {
+  /* Remove margin and padding from body and html */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+
+  /* Content container adjustments */
+  .content-container {
+    display: block;
+    background-color: #f5f5f5; /* Light grey background */
+    padding: 20px 0; /* Only vertical padding */
+    width: 100%;
+    box-sizing: border-box; /* Prevent overflow */
+    margin: 0; /* Make sure no extra margin */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  /* Text container adjustments */
+  .text-containerP {
+    width: 100%;
+    padding: 0; /* Remove padding */
+    box-sizing: border-box; /* Prevent padding overflow */
+  }
+
+  /* Image container adjustments */
+  .image-containerP {
+    width: 100%;
+    text-align: center;
+    padding: 0 10px; /* Padding on both sides for image */
+    box-sizing: border-box; /* Prevent padding overflow */
+    margin-top: 20px; /* Ensure space between title and image */
+  }
+
+  .image-containerP img {
+    width: 100%;
+    height: auto;
+    padding: 0 10px; /* Padding on both sides for image */
+    padding-left: 200px;
+    box-sizing: border-box; /* Prevent padding overflow */
+  }
+
+  /* Title h2 - centered and without side padding */
+  .text-containerP h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+    padding: 0; /* No padding on sides */
+    box-sizing: border-box;
+    margin-left: -1px;
+  }
+
+  /* Other text elements */
+  .text-containerP h5,
+  .text-containerP h4,
+  .text-containerP h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left; /* Align text to left for better readability */
+    margin-top: 10px;
+    padding: 0; /* Remove padding */
+    box-sizing: border-box; /* Prevent padding overflow */
+    margin-left: -1px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  /* Social buttons */
+  .unique-social-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: -1px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .unique-social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin-right: 10px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .unique-social-btn:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+
+
+
+
+      </style>
+    
+
+            <section class="content-container">
+                <div class="text-containerP">
+                 
+                  <h2>Md. Bahalul Kabir</h2>
+                  <h5>We believe in “Our Words as Promises”, “Value Our Associates”, “Reward Their Performance”,” Customer Satisfaction Matrix As True Test”. We work together, across boundaries to meet the needs of our clients and to help the company win.</h5>
+              
+                  <h3>We want to contribute to the dreams of Bangladesh and offer every household of Bangladesh an opportunity to develop professional capabilities and engaged in businesses and development activities for economic and social benefits, also committed to making a positive impact with the same energy that characterizes our practice of Fiscal and Corporate Services as a community involvement in development of Income Tax & Company Law is a testament to the company’s core values.</h3>
+                  
+                  <h4>Founder of B. Kabir & Law Associates and, he has over 20 years of experience advising multinational clients, financial institutions and governments on mergers and acquisitions.</h4>
+              
+                  <!-- Social Media Buttons -->
+                  <div class="unique-social-buttons">
+                    <a href="#" class="unique-social-btn unique-facebook-btn">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="unique-social-btn unique-gmail-btn">
+                      <i class="fas fa-envelope"></i>
+                    </a>
+                  </div>
+                </div>
+              
+                <div class="image-containerP">
+                  <img src="img/career3.jpg" alt="Image description">
+                </div>
+              </section>
+
+
+
+
+
+              
+            
+
+
+
+<style>
+
+              /* careerP */
+
+              * {
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: border-box;
+              }
+              
+              body {
+                  font-family: Arial, sans-serif;
+              }
+              
+              .CareerP {
+                  display: flex;
+                  flex-wrap: wrap; /* Allow wrapping */
+                  justify-content: space-between;
+                  padding: 40px;
+                  min-height: 300px; /* Optional: Ensure it doesn't collapse */
+              }
+              
+              .left-section {
+                  flex: 1;
+                  max-width: 300px;
+                  margin-right: 50px;
+              }
+              
+              .left-section h3 {
+                  font-size: 24px;
+                  color: #333;
+                  margin-bottom: 10px;
+                  margin-left: 100px;
+                  font-family: 'Poppins', sans-serif;
+                  font-size: 15px;
+                  font-style: normal;
+                  font-weight: 300;
+              }
+              
+              .left-section h1 {
+                  font-size: 40px;
+                  color: #000;
+                  margin-bottom: 20px;
+                  margin-left: 100px;
+                  font-family: 'Poppins', sans-serif;
+                  font-style: normal;
+                  font-weight: 400;
+              }
+              
+              .left-section p {
+                  font-size: 16px;
+                  color: #666;
+                  line-height: 1.6;
+                  margin-left: 100px;
+                  font-family: 'Poppins', sans-serif;
+                  font-weight: 200;
+              }
+              
+              .right-section {
+                  display: flex;
+                  flex: 2;
+                  justify-content: space-between;
+              }
+              
+              .text-section {
+                  max-width: 600px;
+              }
+              
+              .text-section ul {
+                  list-style: none;
+              }
+              
+              .text-section li {
+                  margin-bottom: 30px;
+              }
+              
+              .text-section h3 {
+                  font-size: 14px;
+                  color: #000;
+                  margin-bottom: 10px;
+                  font-style: normal;
+                  font-family: 'Poppins', sans-serif;
+                  font-weight: 300px;
+              }
+              
+              .text-section p {
+                  font-size: 14px;
+                  color: #666;
+                  line-height: 1.6;
+                  font-style: normal;
+                  font-family: 'Poppins', sans-serif;
+                  font-weight: 200px;
+                  font-size: 14px;
+                  line-height: 28px;
+              }
+              
+              /* Image styling */
+              .image-section {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: flex-start;
+              }
+              
+              .image {
+                  max-width: 250px;
+                  margin-bottom: 20px;
+                  
+              }
+              
+              @media (max-width: 768px) {
+                  .CareerP {
+                      flex-direction: column;
+                  }
+              
+                  .left-section {
+                      margin-bottom: 30px;
+                  }
+              
+                  .right-section {
+                      flex-direction: column;
+                  }
+              
+                  .image-section {
+                      flex-direction: row;
+                  }
+              
+                  .image {
+                      margin-right: 20px;
+                      margin-bottom: 0;
+                  }
+              }
+              
+              .image-containerP img{
+                  margin-top: 100px;
+              }
+
+
+
+
+
+
+
+
+              @media (max-width: 768px) {
+    .CareerP {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    /* Center text for left-section */
+    .left-section {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .left-section h1, .left-section h3{ 
+        margin-left: 100px;
+        padding: 0 15px;
+        font-size: 18px; /* Adjust font size for smaller screens */
+    }
+
+    .left-section p {
+        margin-right: -100px;
+        padding: 0 15px;
+        font-size: 18px; /* Adjust font size for smaller screens */
+        margin-left: -1px;
+    }
+
+
+    /* Right section: text content aligned with padding */
+    .right-section {
+        display: block;
+    }
+
+    .text-section {
+        padding: 0 15px;
+    }
+
+    .text-section h3 {
+        font-size: 16px; /* Adjust font size */
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+
+    .text-section p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
+        font-weight: 200;
+    }
+
+    .image-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 15px;
+    }
+
+    .image {
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+
+            </style>      
+
+  
+
+ 
+
+        <div class="CareerP">
+            <div class="left-section">
+            <h3>1992-2006</h3>
+            <h1>Career</h1>
+            <p>The changing legislation introduces new challenges for implementation which attorneys must be aware of.</p>
+        </div>
+        <div class="right-section">
+            <div class="text-section">
+                <ul>
+                    <li>
+                        <h3>Articleship under ICAB, 1992-1996</h3>
+                        <p>Mr. Md. Bahalul Kabir has 32 years professional exposure in various capacities since 1992 as Audit Manager & Article ship student under The Institute of Chartered Accountants of Bangladesh until  April 1996, while he audited more than 100 manufacturing industries, financial institutions, service oriented enterprises, Govt. autonomous bodies, non-profitable & non-govt. organizations during the 3(three) years 6(Six) months long period. </p>
+                    </li>
+                    <li>
+                        <h3>Chief Accountant at Bengal Ventures Ltd, 1996</h3>
+                        <p>He then moved to Bengal Ventures Ltd as Chief Accountant to oversee the corporate management by implementing control of Accounts, preparation and further evaluation of Financial Statement, Budget, resource planning, compliance, control standards and risk management etc. of the company until end 1996. </p>
+                    </li>
+                    <li>
+                        <h3>Financial Executive at Management & Financial Services Ltd , 1997</h3>
+                        <p>From January 1997, he joint one of the largest Non-government & Joint venture  organization of Bangladesh with USA, Management & Financial Services Ltd as Financial Executive until September 1997, During this period he has enhanced his responsibility  on varied activities on Company affairs related to Public issue and/ or Private Placement of Securities, preparation of Prospectus and Offer Document/ Private Placement Memorandum also Feasibility Study Report on the projects for new and proposals for Public Issue purpose, maintenance of Portfolio Management, Investment Analysis and Control of the Accounts of the Company. </p>
+                    </li>
+                    <li>
+                        <h3>Company Secretary at Miracle Industries Ltd, 1997-2005</h3>
+                        <p>Mr. Md. Bahalul Kabir then moved to Miracle Industries Ltd in Sept 1997 as Company Secretary and severed the company for more than 8 years. During this period, he performed vital role and was overall in-charge of the Board, Finance, Corporate Affairs & Share Department helped him to acquire the knowledge on various permission from different Govt. Concern i.e. Dept. of Environment, Board of Investment, Securities & Exchange Commission, Register of Joint Stock Companies & Firm, Power development board, National Board of Revenue & others, also the processing of IPO in Bangladesh. </p>
+                    </li>
+                    <li>
+                        <h3> General manager Admin, Accounts and Finance at Fu-Wang Bowling & Services Ltd, 2005-2006</h3>
+                        <p>He later in November 2005 shifted to Fu-Wang Bowling & Services Ltd. as General manager Admin, Accounts and Finance, while serving the company he had taken the charges of Finance, Accounts, Company affair, Audit, Store and Inventory Management, Custom and Income Tax, Vat Accounts, HR Department, MIS. </p>
+                    </li>
+                    <li>
+                        <h3> Financial Advisor at Khan Brothers Group 2006</h3>
+                        <p>Prior joining B. KABIR & LAW ASSOCIATES as Head of Chamber, he simultaneously served as Financial Advisor for Khan Brothers Group since November 2006 </p>
+                    </li>
+
+                    <li>
+                        <h3> Head of Chamber at B Kabir & Law Associates, 2006-Present</h3>
+                        <p>Mr. Md. Bahalul Kabir has far-reaching expertise in Financial and Corporate Law in Bangladesh business also his noteworthy contribution in B. KABIR & LAW ASSOCIATES to date includes various initiatives including implementing One-Stop and Online - Service concept and paperless filling system & e-mail corresponding by taking all professional service-related documents and committed to submit your return & renewals in due course of time as per requirement of National Board of Revenue and other concern authorities. </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="image-section">
+                <img src="img/career1.png" alt="Group discussion" class="image">
+                <img src="img/career2.png" alt="Business meeting" class="image">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer Start -->
+<div class="footer-container">
+    <div class="footer-content text-center">
+        <h2 class="footer-title">B. KABIR & LAW ASSOCIATES</h2>
+        <p class="footer-address"><i class="fa fa-map-marker-alt"></i> 30 Topkhana Road, Amina Vista, Flat B2</p>
+        <p class="footer-phone"><i class="fa fa-phone-alt"></i> +880 1715016 746</p>
+        <div class="footer-social-media">
+            <a href="https://facebook.com" class="social-icon" data-icon="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" class="social-icon" data-icon="twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" class="social-icon" data-icon="instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+  </div>
+  <!-- Footer End -->
+  
+  <!-- Add FontAwesome CDN for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  
+  <style>
+  .footer-container {
+    position: relative;
+    margin-top: 0; /* Removed margin-top to eliminate gap */
+    padding: 40px 0; /* Adjust padding if needed */
+    background: #121518; /* Black background */
+    color: #ffffff;
+    text-align: center; /* Center-align all elements */
+    display: flex; /* Use Flexbox */
+    flex-direction: column; /* Arrange children vertically */
+    justify-content: center; /* Center content vertically */
+    height: 400px; /* Set a fixed height to maintain the black area */
+  }
+  
+  .footer-title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 32px;
+    color: #aa9166;
+    margin-bottom: 10px; /* Adjust bottom margin */
+  }
+  
+  .footer-address,
+  .footer-phone {
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    margin-bottom: 3px; /* Adjust bottom margin */
+  }
+  
+  .footer-phone {
+    margin-bottom: 30px !important; /* Adjust bottom margin */
+  }
+  
+  .footer-social-media {
+    margin-top: 40px; /* Space above social icons */
+  }
+  
+  .footer-social-media .social-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px; /* Center the icon within the circle */
+    margin: 0 10px; /* Space between icons */
+    background: #ffffff; /* White background */
+    border-radius: 50%; /* Make it a circle */
+    font-size: 24px; /* Icon size */
+    color: #121518; /* Default icon color */
+    transition: background 0.4s ease, color 0.4s ease; /* Smooth transition for hover effect */
+  }
+  
+  /* Hover effect for social icons */
+  .footer-social-media .social-icon:hover {
+    background: #aa9166; /* Gold color on hover */
+    color: #ffffff; /* Change icon color to white */
+  }
+  </style>
+    </body>
+</html>
+
+
+
+

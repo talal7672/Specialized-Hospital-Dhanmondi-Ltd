@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,600;1,700;1,800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet"> 
+  <link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  
+
+  <title>B Kabir & Law Associates</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: transparent;
+      color: #fff;
+      z-index: 1000;
+      font-family: 'Raleway', sans-serif;
+      
+      
+    }
+
+    
+
+
+ 
+
+
+
+    .navbar .logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .navbar .logo:hover {
+    transform: translateX(5px);
+  }
+
+  .navbar .logo img {
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 25px;
+  }
+
+  .navbar .logo span {
+    padding-top: 25px;
+    font-size: 1.1rem;
+    font-weight: 100;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 5px;
+  }
+
+    
+
+    .hamburger {
+      
+      position: relative;
+      width: 60px;
+      height: 35px;
+      top: 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 1001;
+      transition: transform 0.3s ease;
+    }
+
+    .hamburger:hover {
+      transform: translateX(-5px);
+    }
+
+    .hamburger div {
+      width: 80%;
+      height: 2px;
+      background-color: #fff;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger div.middle {
+      width: 60%;
+      margin-left: 20%;
+    }
+
+    :root {
+      --bar-width: 350px;
+      
+    }
+
+    .dropdown-menu {
+      position: fixed;
+      top: 0;
+      right: -500px;
+      width: 500px;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      padding: 5rem;
+      transition: right 0.3s ease;
+      z-index: 9999;
+      overflow-y: auto;
+      padding-top: 200px;
+    }
+
+    .dropdown-menu.active {
+      right: 0;
+    }
+
+    .dropdown-menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin: 0;
+      padding: 1.9rem 0;
+      position: relative;
+      transition: color 0.3s;
+      padding-left: 1rem;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 500;
+      letter-spacing: 4px;
+    }
+
+
+
+
+
+    .dropdown-menu a::before, .dropdown-menu a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: var(--bar-width);
+      height: 0.3px;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .dropdown-menu a::before {
+      top: 0px;
+      
+    }
+
+    .dropdown-menu a::after {
+      bottom: 0px;
+      
+    }
+
+    .dropdown-menu .live-location {
+      margin-top: 2rem;
+      background-color: #DDDDDD;
+      
+      color: #fff;
+      padding: 1.3rem 3rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-family: "Raleway", sans-serif;
+      font-weight: 500;
+      letter-spacing: 5px;
+      color: black;
+      font-size: 0.8rem;
+    }
+
+    .dropdown-menu .live-location:hover {
+      background-color: #fff;
+    }
+
+    .dropdown-menu .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      width: 35px;
+      height: 35px;
+      background: none;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .dropdown-menu .close-btn div {
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      position: absolute;
+      transform: rotate(45deg);
+      
+    }
+
+    .dropdown-menu .close-btn div:last-child {
+      transform: rotate(-45deg);
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url('img/banner-grain.jpg') no-repeat center center/cover;
+    
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 1.1rem;
+      font-weight: 100;
+      letter-spacing: 5px;
+      position: relative !important;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .typed-text {
+  position: absolute;
+  top: 100%; /* Position the animated words below the "We are the" text */
+  left: 50%;
+  transform: translateX(-50%); /* Center the animated text horizontally */
+  white-space: nowrap; /* Prevents the text from breaking into two lines */
+  font-size: 3.4rem; /* Adjust as needed for size */
+  letter-spacing: 20px;
+  word-wrap: break-word;
+}
+
+
+
+  .typed-text span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: typing 1s ease-in-out forwards;
+  }
+
+  @keyframes typing {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+    @media (max-width: 768px) {
+
+
+      .navbar {
+        padding: 7px;  
+      }
+
+      .navbar .logo span {
+        font-size: 0.8rem;
+        
+      }
+
+      .dropdown-menu a {
+        font-size: 1rem;
+      }
+
+      .hamburger {
+        width: 25px;
+        height: 25px;
+        margin-right: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="img/logoW.png" alt="Company Logo">
+      <span>B Kabir & Law Associates</span>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div class="middle"></div>
+      <div></div>
+    </button>
+  </header>
+
+  <div class="dropdown-menu" id="dropdown-menu">
+    <button class="close-btn" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+    </button>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Attorney</a>
+    <a href="#">Associates</a>
+    <a href="#">Contact</a>
+    <button class="live-location" onclick="window.open('#')">Live Location</button>
+  </div>
+
+  <section class="hero">
+    <h1>WE WERE BORN TO BE<br> <span class="typed-text"></span></h1>
+  </section>
+
+  <script>
+    let words = ["NEGOTIATORS", "PROBLEM SOLVERS", "DEDICATED", "STRATEGIC THINKERS", "PROFESSIONAL ATTORNEYS"];
+    let index = 0;
+    let spanElement = document.querySelector('.typed-text');
+    let typingSpeed = 100;
+    let deletingSpeed = 50;
+    let wordDelay = 2000;
+
+    function typeWord() {
+      let currentWord = words[index];
+      let currentIndex = 0;
+      spanElement.innerHTML = "";
+      let typingInterval = setInterval(function() {
+        spanElement.innerHTML += currentWord.charAt(currentIndex);
+        currentIndex++;
+        if (currentIndex === currentWord.length) {
+          clearInterval(typingInterval);
+          setTimeout(deleteWord, wordDelay);
+        }
+      }, typingSpeed);
+    }
+
+    function deleteWord() {
+      let currentWord = words[index];
+      let currentIndex = currentWord.length;
+      let deletingInterval = setInterval(function() {
+        spanElement.innerHTML = currentWord.substring(0, currentIndex - 1);
+        currentIndex--;
+        if (currentIndex === 0) {
+          clearInterval(deletingInterval);
+          index = (index + 1) % words.length;
+          setTimeout(typeWord, 500);
+        }
+      }, deletingSpeed);
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById("dropdown-menu");
+      menu.classList.toggle("active");
+    }
+
+    typeWord();
+</script>
+
+  <script>
+    function toggleMenu() {
+      const dropdownMenu = document.getElementById('dropdown-menu');
+      dropdownMenu.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Section</title>
+
+<body>
+<section class="services-section">
+  <div class="services-container">
+    <!-- LEFT: image collage + decorative shapes -->
+    <div class="services-left">
+      <div class="images-container">
+        <!-- blobs -->
+        <div class="bg-shape shape1"></div>
+        <!-- <div class="bg-shape shape2"></div> -->
+        <!-- dot pattern -->
+        <div class="dot-pattern"></div>
+        <!-- images -->
+        <img src="img/doctor1.png" alt="Doctor at desk" class="img-large" />
+        <img src="img/doctor2.png" alt="Doctors walking" class="img-top" />
+        <div class="img-small-wrapper">
+          <img src="img/doctor3.jpg" alt="Video thumbnail" class="img-small" />
+          <span class="play-icon">▶</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: text + list + button -->
+    <div class="services-right">
+      <p class="subtitle">ABOUT DGKHL</p>
+      <h2>Why Choose DGKHL?</h2>
+      <p class="description">
+        We take pride in offering a wide range of best-in-class medical services and
+        popular treatments to cater to your diverse healthcare needs.
+      </p>
+      <ul class="services-list">
+        <li><span class="check-icon">✓</span>Service excellence since 1990</li>
+        <li><span class="check-icon">✓</span>Proposed 100 bed</li>
+        <li><span class="check-icon">✓</span>Our commitment to provide high quality service.</li>
+        <li><span class="check-icon">✓</span>Cost effective health service for all.</li>
+        <li><span class="check-icon">✓</span>24/7 Neuro care Center (OPD/IPD)</li>
+        <li><span class="check-icon">✓</span>Outdoor/Indoor, ICU, NICU, PICU all in one place.</li>
+        <li><span class="check-icon">✓</span>International Standard Dialysis Unit with affordable price.</li>
+        <li><span class="check-icon">✓</span>One & Only Paediatric Hematology & Oncology Center.</li>
+        <li><span class="check-icon">✓</span>Specialised Pain care Center.</li>
+      </ul>
+      <a href="#" class="btn">
+        Read More <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ==== LAYOUT & TYPOGRAPHY ==== */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .services-section {
+    padding: 80px 20px;
+  }
+  .services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  /* ==== LEFT COLUMN (IMAGES + DECOR) ==== */
+  .services-left {
+    flex: 1;
+    position: relative;
+    min-height: 600px;
+  }
+  .images-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* organic blob shapes */
+  .bg-shape {
+    position: absolute;
+    background: #fdecef;
+    border-radius: 50%;
+    z-index: 1;
+  }
+.shape1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: -50px;
+  left: -60px;
+  background: #eaf8fd;
+  z-index: 1;
+
+  /* this border-radius gives a lumpy, 3-lobed blob look */
+  border-radius: 60% 40% 30% 70% / 50% 60% 40% 55%;
+}
+
+
+  /* dotted pattern */
+.dot-pattern {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  top: 70px;
+  left: 60px;
+  /* same dot size, but spaced out */
+  background-image: radial-gradient(#000 2px, transparent 2px);
+  background-size: 20px 20px;  /* was 10px → 20px */
+  opacity: 0.2;
+  z-index: 2;
+}
+
+
+  /* main circle image */
+  .img-large {
+    position: absolute;
+    width: 240px;
+    height: 400px;
+    top: 170px;
+    left: -10px;
+    border-radius: 120px;
+    object-fit: cover;
+    z-index: 3;
+  }
+
+  /* tall pill-shape at top right */
+  .img-top {
+    position: absolute;
+    width: 240px;
+    height: 400px;
+    top: -50px;
+    right: -20px;
+    border-radius: 120px;
+    object-fit: cover;
+    z-index: 3;
+  }
+
+  /* small oval + play icon */
+  .img-small-wrapper {
+    position: absolute;
+    width: 250px;
+    height: 150px;
+    bottom: 0;
+    right: 100px;
+    z-index: 3;
+  }
+  .img-small {
+    position: absolute;
+    width: 500px !important;
+    height: 150px;
+    border-radius: 100px;
+    top: 530px;
+    left: 130px;
+    object-fit: cover;
+  }
+  .play-icon {
+    position: absolute;
+    top: 610px;
+    left: 255px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ==== RIGHT COLUMN ==== */
+  .services-right {
+    flex: 1;
+    padding-left: 100px;
+    padding-right: 50px;
+  }
+  .subtitle {
+    color: #b4e0fa;
+    text-transform: uppercase;
+    font-size: 19px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+  .services-right h2 {
+    color: #000;
+    font-size: 45px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .description {
+    color: #6b6b6b;
+    font-size: 17px;
+    margin-bottom: 30px;
+  }
+  .services-list {
+    list-style: none;
+    margin-bottom: 40px;
+  }
+  .services-list li {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+  .check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #b4e0fa;
+    color: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  /* button */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    border: 2px solid #b4e0fa;
+    border-radius: 50px;
+    color: #b4e0fa;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+  }
+  .btn .arrow {
+    margin-left: 8px;
+    font-size: 18px;
+  }
+  .btn:hover {
+    background: #b4e0fa;
+    color: #fff;
+  }
+</style>
+
+</body>
+</html>

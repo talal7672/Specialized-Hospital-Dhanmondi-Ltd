@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,600;1,700;1,800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet"> 
+  <link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+  <title>Contact</title>
+  </head>
+
+<!-- Navbar Start -->
+
+
+<style>
+  /* Smooth transition for the mobile menu */
+  #mobile-menu {
+    top: 80px;
+    transform: translateX(-100%) scale(0.8); /* Start off-screen with scale */
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s ease-in-out;
+  }
+
+  /* When the menu is visible, slide it in */
+  #mobile-menu.visible {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    visibility: visible; /* Make visible when active */
+  }
+
+  /* Hamburger menu lines */
+  .hamburger-icon path {
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.5s ease-in-out;
+  }
+
+  /* Top line transforms to a diagonal */
+  .hamburger-icon.open path:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  /* Middle line disappears */
+  .hamburger-icon.open path:nth-child(2) {
+    opacity: 0;
+  }
+
+  /* Bottom line transforms to a diagonal */
+  .hamburger-icon.open path:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* Ensuring text stays in one line */
+  .single-line-heading {
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: unset;
+    width: auto;
+    margin: 0;
+  }
+
+  /* Hero container with centered text */
+  .hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  /* Fixed navbar */
+  .sticky-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .navbar-height {
+    height: 80px;
+  }
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  /* Mobile menu styling */
+  .navbar-container a {
+    transition: color 0.3s ease;
+  }
+
+  .navbar-container a:hover {
+    color: #B1976B;
+  }
+</style>
+
+<body class="bg-white">
+  <div class="bg-white">
+    <header class="sticky-navbar navbar-height">
+      <nav class="navbar-container p-4 lg:px-8 bg-white" aria-label="Global">
+        <div class="flex lg:flex-1">
+          <a href="index.html" class="-m-1.5 p-1.5">
+            <span class="sr-only">Your Company</span>
+            <img class="h-20 w-auto" src="img/logoB.png" alt="Company Logo">
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex lg:hidden">
+          <button 
+            type="button" 
+            onclick="toggleMenu()" 
+            class="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-6 w-6 hamburger-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="hidden lg:flex lg:items-center lg:gap-x-8">
+          <a href="index.html" class="text-sm font-semibold text-gray-900">Home</a>
+          <a href="about.html" class="text-sm font-semibold text-gray-900">About</a>
+          <a href="practice1.html" class="text-sm font-semibold text-gray-900">Services</a>
+          <a href="attorney.html" class="text-sm font-semibold text-gray-900">Attorney</a>
+          <a href="associates.html" class="text-sm font-semibold text-gray-900">Associates</a>
+          <a href="contact.html" class="text-sm font-semibold text-gray-900">Contact</a>
+        </div>
+
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a href="#" class="text-sm font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </nav>
+
+      <!-- Mobile Navigation Links -->
+      <div 
+        id="mobile-menu" 
+        class="fixed inset-y-0 left-0 z-40 w-64 bg-white shadow-lg flex flex-col space-y-2 px-6 pt-4 pb-6"
+      >
+        <a href="index.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Home</a>
+        <a href="about.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">About</a>
+        <a href="practice1.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Services</a>
+        <a href="attorney.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Attorney</a>
+        <a href="associates.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Associates</a>
+        <a href="contact.html" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Contact</a>
+        <a href="https://maps.app.goo.gl/5n88uqXQPzYyFhso7?g_st=ic" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Live Location</a>
+        <a href="#" class="block text-base font-semibold text-gray-900 hover:bg-gray-100 rounded-md px-4 py-2">Log in</a>
+      </div>
+    </header>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.querySelector('.hamburger-icon');
+      
+      menu.classList.toggle('visible');
+      icon.classList.toggle('open');
+    }
+  </script>
+  
+    
+
+
+
+            <!-- contact title starts -->
+
+
+            <section id="work-with-us" class="relative isolate overflow-hidden bg-gray-900 py-16 flex items-center justify-center" style="height: 50vh;">
+                <img src="img/cutefirm_edited_edited.jpg" alt="" class="absolute inset-0 -z-10 size-full object-cover object-right md:object-center">
+                <div class="mx-auto text-center">
+                    <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Contact</h2>
+                </div>
+            </section>
+    
+            <!-- contact title ends -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Contact Section Start -->
+    
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Poppins', sans-serif; /* Default font for the entire body */
+        }
+
+        /* Contact Form Styles */
+        .contact-card {
+            background-color: white;
+            padding: 40px;
+            max-width: 600px; /* Fixed width for the contact card */
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin: 100px auto; /* Centering the card */
+        }
+
+        .contact-card h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .contact-card p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .contact-card .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-card .form-group label {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .contact-card .form-group input,
+        .contact-card .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .contact-card .form-group textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        .contact-card .send-button {
+            background-color: #e1c2a2;
+            color: #333;
+            padding: 10px 25px;
+            border: 2px solid #e1c2a2;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .contact-card .send-button:hover {
+            background-color: transparent;
+            color: #e1c2a2;
+        }
+
+        /* Footer Styles */
+        .footer-social .social-icon {
+            color: #e1c2a2; /* Updated color for icons */
+            font-size: 20px; /* Adjust size */
+            transition: color 0.3s; /* Smooth color transition */
+        }
+
+        .footer-social .social-icon:hover {
+            color: #333; /* Change color on hover */
+        }
+    </style>
+</head>
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <div class="contact-card">
+    <h1>Contact us</h1>
+    <p>With extensive experience, we advise top national and international companies.</p>
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">Your Name (required)</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Your Email (required)</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject">
+      </div>
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message"></textarea>
+      </div>
+      <button type="submit" class="send-button">SEND</button>
+    </form>
+  </div>
+
+
+    <!-- Map section start -->
+
+<style>
+  .contact-section {
+      display: flex;
+      flex-direction: column; /* Stack contact info above the map */
+      margin-top: 0; /* Ensure no top margin */
+      padding-top: 0; /* Ensure no top padding */
+  }
+  
+  .map {
+      width: 100vw; /* Full width of viewport */
+      height: 450px; /* Adjust height as needed */
+      margin: 0; /* Remove any margins */
+      filter: grayscale(100%); /* Black and white map effect */
+  }
+  
+  .map iframe {
+      width: 100%;
+      height: 100%;
+      border: none; /* Remove borders from the iframe */
+  }
+  </style>
+  
+  <div class="contact-section">
+      <div class="map">
+          <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.3973148598673!2d-73.99892838459086!3d40.70772467933161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a16ec6a8e81%3A0x34ff9e8cd45f8d6d!2s11%20Wall%20St%2C%20New%20York%2C%20NY%2010005!5e0!3m2!1sen!2sus!4v1696885293216!5m2!1sen!2sus" 
+              width="600" 
+              height="450" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy">
+          </iframe>
+      </div>
+  </div>
+  
+  <!-- Map section end -->
+
+
+
+
+
+
+
+
+
+
+  <!-- Footer Start -->
+<div class="footer-container">
+    <div class="footer-content text-center">
+        <h2 class="footer-title">B. KABIR & LAW ASSOCIATES</h2>
+        <p class="footer-address"><i class="fa fa-map-marker-alt"></i> 30 Topkhana Road, Amina Vista, Flat B2</p>
+        <p class="footer-phone"><i class="fa fa-phone-alt"></i> +880 1715016 746</p>
+        <div class="footer-social-media">
+            <a href="https://facebook.com" class="social-icon" data-icon="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" class="social-icon" data-icon="twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" class="social-icon" data-icon="instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+  </div>
+  <!-- Footer End -->
+  
+  <!-- Add FontAwesome CDN for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  
+  <style>
+  .footer-container {
+    position: relative;
+    margin-top: 0; /* Removed margin-top to eliminate gap */
+    padding: 40px 0; /* Adjust padding if needed */
+    background: #121518; /* Black background */
+    color: #ffffff;
+    text-align: center; /* Center-align all elements */
+    display: flex; /* Use Flexbox */
+    flex-direction: column; /* Arrange children vertically */
+    justify-content: center; /* Center content vertically */
+    height: 400px; /* Set a fixed height to maintain the black area */
+  }
+  
+  .footer-title {
+    font-family: 'Raleway', sans-serif;
+    font-weight: bolder;
+    font-style: normal;
+    font-size: 32px;
+    color: #aa9166;
+    margin-bottom: 10px; /* Adjust bottom margin */
+  }
+  
+  .footer-address,
+  .footer-phone {
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    margin-bottom: 3px; /* Adjust bottom margin */
+  }
+  
+  .footer-phone {
+    margin-bottom: 30px !important; /* Adjust bottom margin */
+  }
+  
+  .footer-social-media {
+    margin-top: 40px; /* Space above social icons */
+  }
+  
+  .footer-social-media .social-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px; /* Center the icon within the circle */
+    margin: 0 10px; /* Space between icons */
+    background: #ffffff; /* White background */
+    border-radius: 50%; /* Make it a circle */
+    font-size: 24px; /* Icon size */
+    color: #121518; /* Default icon color */
+    transition: background 0.4s ease, color 0.4s ease; /* Smooth transition for hover effect */
+  }
+  
+  /* Hover effect for social icons */
+  .footer-social-media .social-icon:hover {
+    background: #aa9166; /* Gold color on hover */
+    color: #ffffff; /* Change icon color to white */
+  }
+  </style>
+
+
+
+
+</body>
+</html>

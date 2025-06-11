@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,600;1,700;1,800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet"> 
+  <link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+  
+
+  <title>B Kabir & Law Associates</title>
+  </head>
+  
+  <div class="hero-section">
+    <div class="container">
+      <div class="content">
+        <div class="text">
+          <article class="fade-in">
+            CORPORATE SERVICES
+          </article>
+          <h2 class="fade-in">
+            We help private businesses grow
+          </h2>
+          <h3 class="fade-in">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</h3>
+            <div class="services-section">
+              <div class="container">
+                  <ul class="services-list fade-in">
+                      <li>
+                          <span class="service-number">01.</span>
+                          <span class="service-name"><strong>Financial Services</strong></span>
+                      </li>
+                      <hr>
+                      <li>
+                          <span class="service-number">02.</span>
+                          <span class="service-name"><strong>Accounting & Audit</strong></span>
+                      </li>
+                  </ul>
+                  <div class="button-container fade-in">
+                      <a href="#" class="explore-btn">Explore Now</a>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="graphic">
+          <img class="fade-in" src="img/overlaycute.png" alt="Graphic">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+      
+      <style>
+
+
+
+
+.services-section {
+    margin-top: 20px;
+}
+
+.services-list {
+    list-style: none;
+    padding: 0;
+}
+
+.services-list li {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.service-number {
+    color: gray;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.service-name {
+    font-size: 20px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.explore-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #60a5fa;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.fade-in {
+  opacity: 0; 
+  animation: fadeIn 1s ease-out forwards; 
+}
+
+
+.fade-in:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.fade-in:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.fade-in:nth-child(3) {
+  animation-delay: 1.5s;
+}
+
+
+
+
+
+
+/* Ensure the hero section spans the full viewport height */
+.hero-section {
+  position: relative;
+  min-height: 85vh; /* Default height for desktop */
+  overflow: hidden;
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  justify-content: center;
+  color: white;
+}
+
+/* Hero background with gradient and blur */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-size: cover;
+  background-attachment: fixed; /* Parallax Effect */
+  background-position: center center; /* Ensure the background is centered */
+  z-index: -1;
+}
+
+/* Ensure container is centered and has appropriate padding */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; /* Vertically center content */
+  justify-content: space-between; /* Space out text and image */
+  width: 100%; /* Make sure content takes full width */
+  color: black;
+}
+
+/* Styling for text block */
+.text {
+  flex: 1;
+  max-width: 50%;
+  text-align: left;
+  padding-top: 50px; /* Add padding to the top for spacing */
+  font-family: "DM Sans", sans-serif;
+  color: black;
+}
+
+.text h2 {
+  font-size: 3.8rem; /* Slightly smaller for better fit */
+  margin-bottom: 20px;
+  line-height: 1.0;
+  font-weight: 600;
+  font-family: "DM Sans", sans-serif;
+  padding-top: 20px;
+  color: black;
+}
+
+.text article {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  line-height: 28px;
+  font-family: "DM Sans", sans-serif;
+  color: black;
+}
+.text h3 {
+  font-size: 1.1rem;
+  font-weight: 300;
+  
+  line-height: 28px;
+  font-family: "DM Sans", sans-serif;
+  color: rgb(109, 103, 103);
+}
+
+/* Styling for graphic block */
+.graphic {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+@media (min-width: 768px) {
+  .graphic {
+    padding-top: 80px;
+  }
+}
+
+.graphic img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 110vh; /* Increase height for mobile to ensure content fits */
+  }
+
+  .content {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center; /* Vertically center in mobile view */
+    height: 100%; /* Ensure full height is used */
+  }
+
+  .text {
+    max-width: 100%;
+    padding-top: 100px; /* Doubled the padding above the text for better spacing */
+    font-size: 2.4rem; /* Adjust font size for mobile */
+    text-align: center; /* Center align text on mobile */
+    color: black;
+  }
+
+  .text h2 {
+    font-size: 3.5rem; /* Make "INTRODUCE" fit properly on mobile */
+    line-height: 1.1; /* Adjust line height */
+    text-align: center;
+    color: black;
+  }
+
+  .graphic {
+    max-width: 100%;
+    margin-top: 90px;
+  }
+
+  .text p1 {
+  text-align: center; /* Center the text horizontally */
+  padding: 0 20px; /* Add padding on both sides */
+  margin: 0 auto; /* Center the paragraph */
+  width: 100%; /* Ensure it takes the full width */
+  max-width: 90%; /* Prevent the text from stretching too far */
+  box-sizing: border-box; /* Include padding in the element's width calculation */
+  overflow-wrap: break-word; /* Allow long words to break and wrap within the box */
+}
+
+
+  /* Disable fixed background attachment for mobile and adjust positioning */
+  .hero-section::before {
+    background-attachment: scroll; /* Disable the fixed background on mobile */
+    background-position: center top; /* Keep the background centered */
+  }
+}
+
+      </style>
