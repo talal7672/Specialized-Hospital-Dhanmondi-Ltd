@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Section</title>
+
+<body>
+<section class="services-section">
+  <div class="container">
+    <!-- LEFT PANEL -->
+    <div class="services-left">
+      <div class="blob"></div>
+      <div class="title-bg"></div>
+      <span class="accent-dot"></span>
+      <p class="subtitle">Medical Services</p>
+      <h2 class="title">
+        We're Providing<br>
+        Best Services.
+      </h2>
+    </div>
+
+    <!-- TOP ROW (2 cards) -->
+    <div class="cards-row row-2">
+      <div class="card">
+        <div class="card-content">
+          <i class="fas fa-eye icon"></i>
+          <h3>Eye Care</h3>
+          <p>We understand the importance of clear vision and its impact on you.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">Read More <span class="arrow-icon">→</span></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <i class="fas fa-stethoscope icon"></i>
+          <h3>Medical Checkup</h3>
+          <p>During your medical checkup, our skilled healthcare professionals.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">Read More <span class="arrow-icon">→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM ROW (3 cards) -->
+    <div class="cards-row row-3">
+      <div class="card">
+        <div class="card-content">
+          <i class="fas fa-tooth icon"></i>
+          <h3>Dental Care</h3>
+          <p>We are passionate about providing top-notch dental care to help you.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">Read More <span class="arrow-icon">→</span></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <i class="fas fa-microscope icon"></i>
+          <h3>Laboratory Service</h3>
+          <p>We understand the critical role that accurate diagnostics play.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">Read More <span class="arrow-icon">→</span></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <i class="fas fa-user-md icon"></i>
+          <h3>Patient-Centered</h3>
+          <p>Clinics with positive reviews and ratings from patients.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">Read More <span class="arrow-icon">→</span></a>
+        </div>
+      </div>
+    </div>
+
+        <div class="cards-row row-3">
+      <div class="card">
+        <div class="card-content">
+          <i class="fas fa-tooth icon"></i>
+          <h3>Dental Care</h3>
+          <p>We are passionate about providing top-notch dental care to help you.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">Read More <span class="arrow-icon">→</span></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <i class="fas fa-microscope icon"></i>
+          <h3>Laboratory Service</h3>
+          <p>We understand the critical role that accurate diagnostics play.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">Read More <span class="arrow-icon">→</span></a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <i class="fas fa-user-md icon"></i>
+          <h3>Patient-Centered</h3>
+          <p>Clinics with positive reviews and ratings from patients.</p>
+        </div>
+        <div class="card-footer">
+          <a href="#">Read More <span class="arrow-icon">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+:root {
+  --salmon:     #f7a58a;
+  --dark-green: #053e45;
+  --cream-bg:   #fff9f6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--cream-bg);
+}
+
+.services-section {
+  padding: 80px 20px;
+}
+
+/* === GRID CONTAINER === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 30px;
+}
+
+/* left panel spans col 1, both rows */
+.services-left {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  padding-top: 20px;
+}
+
+/* top row: 2 cards in cols 2 & 3 */
+.row-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+
+  grid-column: 2 / span 2;
+  grid-row: 1;
+}
+
+/* bottom row: 3 cards spanning all 3 columns */
+.row-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  grid-column: 1 / span 3;
+  grid-row: 2;
+}
+
+/* — Left‐panel decorations — */
+.blob {
+  position: absolute;
+  top: -60px; left: -60px;
+  width: 300px; height: 300px;
+  background: var(--salmon);
+  border-radius: 50% 50% 40% 60% / 60% 40% 50% 50%;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.title-bg {
+  position: absolute;
+  top: 40px; left: -80px;
+  width: 380px; height: 140px;
+  background: var(--cream-bg);
+  border-radius: 80px;
+  z-index: 1;
+}
+
+.accent-dot {
+  position: absolute;
+  top: 10px; left: 260px;
+  width: 12px; height: 12px;
+  background: var(--salmon);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.subtitle {
+  position: relative; z-index: 3;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--salmon);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.title {
+  position: relative; z-index: 3;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: var(--dark-green);
+}
+
+/* — Cards — */
+.card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--dark-green);
+  overflow: hidden;
+}
+
+.card-content {
+  padding: 24px 20px 80px;
+  position: relative; z-index: 2;
+}
+
+.icon {
+  font-size: 1.75rem;
+  color: var(--dark-green);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.card-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: var(--dark-green);
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #555;
+}
+
+/* footer container (no background here) */
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: var(--salmon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.35s ease;
+  z-index: 1;
+}
+
+.card-footer a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+}
+
+.arrow-icon {
+  display: inline-block;
+  margin-left: 8px;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-size: 1rem;
+}
+
+.card:hover .card-footer {
+  height: 100%;
+}
+</style>
+
+
+
+</body>
+</html>
